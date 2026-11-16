@@ -55,7 +55,7 @@ Please download the dataset from the link above and place the CSV file in a `dat
 ## Project Structure
 
 ```text
-├── Code_with_ProtoNAM.ipynb     # Main experimental notebook
-├── data/                        # Place the dataset CSV here
+├── Code_with_ProtoNAM.ipynb     
+├── data/                        
 ├── requirements.txt
 └── README.md
