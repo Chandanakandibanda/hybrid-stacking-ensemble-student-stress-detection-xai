@@ -1,120 +1,61 @@
-# Comparative Study of Stacking-Based Hybrid and Machine Learning Models for Rainfall Prediction
+# Hybrid Stacking Ensemble for Student Stress Detection with Explainable AI
 
-## About the Project
+A hybrid stacking ensemble learning framework for detecting university student stress levels, combining classical machine learning, deep learning, and Explainable AI (SHAP).
 
-This project focuses on predicting rainfall using Machine Learning and Deep Learning techniques. It compares traditional machine learning algorithms with a proposed hybrid stacking model to evaluate their performance in rainfall prediction.
+**Author:** Chandana Sruthi Kandibanda  
+**Programme:** MSc Artificial Intelligence and Data Science  
+**Institution:** Edinburgh Napier University  
+**Year:** 2026
 
-The proposed hybrid approach combines **GRU (Gated Recurrent Unit)** and **XGBoost** models, using **Linear Regression as a Meta-Learner**.
+---
 
-The project uses historical Indian weather data to analyse weather patterns and predict rainfall.
+## Overview
 
-## Project Objectives
+Student stress is a multifactorial problem influenced by academic workload, lifestyle habits, social factors, and psychological conditions. This project proposes a **hybrid stacking ensemble** that leverages the complementary strengths of:
 
-- Analyse historical weather data.
-- Perform data cleaning and preprocessing.
-- Conduct Exploratory Data Analysis (EDA).
-- Identify important weather-related features.
-- Develop machine learning and deep learning models.
-- Implement a hybrid GRU + XGBoost stacking model.
-- Compare model performance using regression evaluation metrics.
+- **Random Forest**
+- **XGBoost**
+- **Multi-Layer Perceptron (MLP)**
+
+as base learners, with **Logistic Regression** as the meta-learner.
+
+The framework is evaluated against several strong baselines (Logistic Regression, Decision Tree, SVM, Random Forest, XGBoost, MLP, SimpleRNN, and ProtoNAM) and is made interpretable using **SHAP**.
+
+### Key Results (Test Set)
+
+| Model                              | Accuracy | Notes                          |
+|------------------------------------|----------|--------------------------------|
+| Hybrid Stacking (RF + XGB + MLP)  | **1.00** | Best overall                   |
+| MLP / SimpleRNN                    | 1.00     | Strong deep learning baselines |
+| Logistic Regression                | 0.98     |                                |
+| ProtoNAM                           | 0.94     | Interpretable neural additive model |
+| XGBoost                            | 0.93     |                                |
+| SVM                                | 0.92     |                                |
+| Random Forest                      | 0.87     |                                |
+| Decision Tree                      | 0.71     |                                |
+
+**Most important features** identified by SHAP:  
+`Screen_Time`, `Assignment_Load`, `Family_Support`
+
+---
 
 ## Dataset
 
-**Dataset:** India Weather and Rainfall Dataset
+**University Student Stress Dataset**  
+- Source: [Mendeley Data](https://data.mendeley.com/datasets/rc5htd5dfr/1)  
+- DOI: [10.17632/rc5htd5dfr.1](https://doi.org/10.17632/rc5htd5dfr.1)  
+- Size: 3,000 undergraduate students (Public, Private & National universities in Bangladesh)  
+- Target: `Stress_Level` → Low / Medium / High  
+- License: **CC BY 4.0**
 
-**Source:** [Mendeley Data](https://data.mendeley.com/datasets/rc5htd5dfr/1)
+Please download the dataset from the link above and place the CSV file in a `data/` folder (or update the path in the notebook).
 
-The dataset contains historical Indian weather observations used for rainfall prediction.
+---
 
-## Technologies and Libraries
+## Project Structure
 
-- Python
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-- TensorFlow / Keras
-- XGBoost
-- Google Colab
-
-## Machine Learning Models
-
-The following models were implemented:
-
-1. Linear Regression
-2. Linear Support Vector Regression (LinearSVR)
-3. Random Forest Regressor
-4. XGBoost Regressor
-5. GRU + XGBoost Stacking Model
-
-## Proposed Hybrid Model
-
-The proposed stacking architecture combines different learning techniques:
-
-- **GRU:** Used to learn patterns from weather-related input features.
-- **XGBoost:** Used to capture complex relationships within the dataset.
-- **Linear Regression:** Acts as the meta-learner to combine predictions from the GRU and XGBoost models.
-
-## Project Workflow
-
-1. Dataset collection and loading
-2. Data cleaning and preprocessing
-3. Handling missing values
-4. Exploratory Data Analysis (EDA)
-5. Feature engineering
-6. Data transformation and scaling
-7. Model development and training
-8. Hybrid stacking model implementation
-9. Model evaluation
-10. Results comparison and visualisation
-
-## Evaluation Metrics
-
-The models are evaluated using:
-
-- Mean Absolute Error (MAE)
-- Mean Squared Error (MSE)
-- Root Mean Squared Error (RMSE)
-- Mean Absolute Percentage Error (MAPE)
-- R-squared (R²)
-
-## How to Run the Project
-
-1. Clone this repository:
-
-   ```bash
-   git clone YOUR_GITHUB_REPOSITORY_URL
-   ```
-
-2. Open the Jupyter Notebook in Google Colab or Jupyter Notebook.
-
-3. Download the dataset from the Mendeley Data source.
-
-4. Upload the dataset when prompted in the notebook.
-
-5. Install the required libraries:
-
-   ```bash
-   pip install pandas numpy matplotlib seaborn scikit-learn xgboost tensorflow
-   ```
-
-6. Run the notebook cells sequentially.
-
-## Project Outcome
-
-This project provides a comparative study of traditional machine learning algorithms and a hybrid stacking-based approach for rainfall prediction.
-
-It explores how combining machine learning and deep learning techniques can be applied to weather forecasting problems.
-
-## Author
-
-**Sowjanya Vasireddy**
-
-MSc Artificial Intelligence and Data Science
-
-Edinburgh Napier University, United Kingdom
-
-## Acknowledgements
-
-I would like to acknowledge the contributors of the Indian Weather and Rainfall Dataset available through Mendeley Data, which was used for this research project.
+```text
+├── Code_with_ProtoNAM.ipynb     # Main experimental notebook
+├── data/                        # Place the dataset CSV here
+├── requirements.txt
+└── README.md
