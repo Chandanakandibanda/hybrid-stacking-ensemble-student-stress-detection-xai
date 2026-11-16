@@ -1,0 +1,27 @@
+# Dataset
+
+This project uses the **University Student Stress Dataset**.
+
+- **Source**: [Mendeley Data](https://data.mendeley.com/datasets/rc5htd5dfr/1)
+- **DOI**: [10.17632/rc5htd5dfr.1](https://doi.org/10.17632/rc5htd5dfr.1)
+- **License**: CC BY 4.0
+- **Size**: 3,000 student responses
+
+## How to get the data
+
+1. Go to the link above and click **Download All**.
+2. Extract the zip.
+3. Place the CSV you want to use in this folder.  
+   Recommended files:
+   - From `Raw_Responses/` → the original Google Form export
+   - From `Cleaned_Data/` → the cleaned version (if available)
+
+4. Rename it to one of these (or update the path in the notebook):
+   - `raw_google_form_export.csv`
+   - `student_stress.csv`
+
+## Citation
+
+Paul, S. K., Paul, R. R., Miah, A. S. M., Hamid, M. E., & Hasan, M. A. F. M. R. (2025).  
+University Student Stress Dataset. Mendeley Data, V1.  
+https://doi.org/10.17632/rc5htd5dfr.1
